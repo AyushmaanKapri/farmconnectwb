@@ -36,7 +36,7 @@ Frontend technologies for creating responsive interfaces
 
 ```http
   https://github.com/AyushmaanKapri/FarmConnectWb.git
-'''
+```
 
 #### Configure Database Access:
 
