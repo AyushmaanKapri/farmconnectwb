@@ -1,10 +1,14 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page import="java.util.Map"%>
-<%@page import="com.learn.mycart.helper.Helper"%>
-<%@page import="com.learn.mycart.entities.Category"%>
+<%@page import="com.learn.FarmConnect.helper.Helper"%>
+<%@page import="com.learn.FarmConnect.entities.Category"%>
+<%@page import="com.learn.FarmConnect.dao.CategoryDao"%>
+<%@page import="com.learn.FarmConnect.helper.FactoryProvider"%>
+<%@page import="com.learn.FarmConnect.entities.Category"%>
 <%@page import="java.util.List"%>
-<%@page import="com.learn.mycart.helper.FactoryProvider"%>
-<%@page import="com.learn.mycart.dao.CategoryDao"%>
-<%@page import="com.learn.mycart.entities.User"%>
+<%@page import="com.learn.FarmConnect.helper.FactoryProvider"%>
+<%@page import="com.learn.FarmConnect.dao.CategoryDao"%>
+<%@page import="com.learn.FarmConnect.entities.User"%>
 <%
 
     User user = (User) session.getAttribute("current-user");
@@ -18,7 +22,7 @@
 
         if (user.getUserType().equals("normal")) {
 
-            session.setAttribute("message", "You are not Farmer ! Do not access this page");
+            session.setAttribute("message", "You are not admin ! Do not access this page");
             response.sendRedirect("login.jsp");
             return;
 
@@ -29,22 +33,21 @@
 
 %>
 
-                            <%  CategoryDao cdao = new CategoryDao(FactoryProvider.getFactory());
+<%  CategoryDao cdao = new CategoryDao(FactoryProvider.getFactory());
                                 List<Category> list = cdao.getCategories();
 
 
 Map<String,Long>m=Helper.getCounts(FactoryProvider.getFactory());
 
                             %>
-                            
-                            
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Farmer Panel</title>
+        <title>Admin Panel</title>
         <%@include file="components/common_css_js.jsp" %>
 
 
@@ -101,6 +104,7 @@ Map<String,Long>m=Helper.getCounts(FactoryProvider.getFactory());
                             </div> 
 
                             <h1><%=list.size()%></h1>
+
                             <h1 class="text-uppercase text-muted">Categories</h1>
 
                         </div>
@@ -310,10 +314,7 @@ Map<String,Long>m=Helper.getCounts(FactoryProvider.getFactory());
 
                             <!--product category-->
 
-
-
-
-                            <div class="form-group">
+                              <div class="form-group">
                                 <select name="catId" class="form-control" id="">
                                     <%                                        for (Category c : list) {
                                     %>

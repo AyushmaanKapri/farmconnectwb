@@ -1,5 +1,5 @@
 
-<%@page import="com.learn.mycart.entities.User"%>
+<%@page import="com.learn.FarmConnect.entities.User"%>
 <%
     User user1 = (User) session.getAttribute("current-user");
 

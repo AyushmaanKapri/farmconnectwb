@@ -26,8 +26,8 @@
         <property name="connection.pool_size">10</property>
         
         <!-- Entity mappings -->
-        <mapping class="com.learn.mycart.entities.User" />  
-        <mapping class="com.learn.mycart.entities.Category" />  
-        <mapping class="com.learn.mycart.entities.Product" />  
+        <mapping class="com.learn.FarmConnect.entities.User" />  
+        <mapping class="com.learn.FarmConnect.entities.Category" />  
+        <mapping class="com.learn.FarmConnect.entities.Product" />  
     </session-factory>
 </hibernate-configuration>
