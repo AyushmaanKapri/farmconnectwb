@@ -49,6 +49,8 @@ Map<String,Long>m=Helper.getCounts(FactoryProvider.getFactory());
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Admin Panel</title>
         <%@include file="components/common_css_js.jsp" %>
+                 <link rel="icon" type="image/png" href="img/fclogo2.png">
+
 
 
     </head>
